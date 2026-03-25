@@ -13,7 +13,9 @@ if len(sys.argv) == 1:
 args = parser.parse_args()
 
 if re.search("^[ACGTU]+$", args.seq):
-    if re.search("T", args.seq):
+    if re.search("T", args.seq) and re.search("U", args.seq):
+        print("The sequence is a mix of DNA and RNA (invalid)")
+    elif re.search("T", args.seq):
         print("The sequence is DNA")
     elif re.search("U", args.seq):
         print("The sequence is RNA")
