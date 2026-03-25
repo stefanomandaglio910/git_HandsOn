@@ -1,0 +1,72 @@
+ Task git
+
+# Inizialization
+git init
+git add seqClass.py
+git commit -m "Commit 1"
+
+# "Make a new branch called fix and move to it."
+git checkout -b fix 
+
+# After opening file seqClass.py and modify with correct code,
+# save modifications in fix branch
+git add seqClass.py
+git commit -m "Fix: correctly classify any DNA or RNA sequence"
+
+# Merging the fix branch back to master one
+git checkout master
+git merge fix
+
+# Pushing commits on master to my GitHub repo
+git remote add origin https://github.com/stefanomandaglio910/git_HandsOn.git
+git push -u origin master
+
+# Pushing changes in the fix branch to my GitHub repo
+git checkout fix
+git push -u origin fix
+
+# Collaboration with classmate
+
+# inviting classmate on GitHub
+# Repository page -> settings -> Collaborators -> Manage access, Add people -> insert name or email
+
+Step 2: Your classmate downloads the code (On their PC)
+Once the invitation is accepted, your classmate will need to open their terminal and "clone" (download) 
+your repository so they can work on it locally:
+
+Bash
+git clone https://github.com/stefanomandaglio910/git_HandsOn.git
+
+
+
+
+
+# Task docker
+
+# creating Dockerfile
+code Dockerfile
+
+# FROM python:3.10-slim
+
+# LABEL maintainer="you <your_email>" \
+    #  version="0.1" \
+     # description="Python script to classify DNA and RNA sequences"
+
+# COPY seqClass.py /usr/local/bin/seqClass.py
+# RUN chmod +x /usr/local/bin/seqClass.py
+
+# Building the image
+docker build -t seqclass:v1 .
+
+# testing with a DNA sequence
+docker run seqclass:v1 seqClass.py -s TCGTGA
+# Output: The sequence is DNA
+
+# Login
+docker login
+
+# tagging image for repository
+docker tag seqclass:v1 stefanomandaglio/seqclass:v1
+
+# pushing
+docker push stefanomandaglio/seqclass:v1
