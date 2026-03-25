@@ -30,10 +30,6 @@ git push -u origin fix
 # inviting classmate on GitHub
 # Repository page -> settings -> Collaborators -> Manage access, Add people -> insert name or email
 
-Step 2: Your classmate downloads the code (On their PC)
-Once the invitation is accepted, your classmate will need to open their terminal and "clone" (download) 
-your repository so they can work on it locally:
-
 Bash
 git clone https://github.com/stefanomandaglio910/git_HandsOn.git
 
